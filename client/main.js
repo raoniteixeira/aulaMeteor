@@ -3,6 +3,11 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
+
+import { Mongo } from 'meteor/mongo';
+export const Nomes = new Mongo.Collection('nomes');
+
+
 Template.msg.onCreated( function msgOnCreate() {
   this.name = new ReactiveVar('');
 });
@@ -18,7 +23,7 @@ Template.msg.helpers({
       return false;
   },
   'lista': function() {
-    return ['coisa1', 'coisa2', 'coisa3'];
+    return Nomes.find();
   }
 });
 
@@ -30,5 +35,6 @@ Template.msg.events({
     event.preventDefault();
     instance.name.set($('[name=xyz]').val());
     console.log(instance)
+    Nomes.insert({'nome': $('[name=xyz]').val()})
   }
 });

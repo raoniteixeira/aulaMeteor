@@ -11,8 +11,8 @@
   
   {{#if nomeEstaVazio}}
     Digite seu nome
-    <form>
-      Nome: 
+    <form>   
+      Nome:
       <input type="text" id="fname" name="xyz">
       <input type="submit" class="submit">
     </form>
@@ -21,7 +21,12 @@
     {{name}}
   {{/if}}
   
-  
-  
+  <br><br>
+  Pessoas cadastradas
+  <ol>
+  {{#each l in lista}}
+    <li>{{l.nome}}</li>
+  {{/each}}
+</ol>
   
 </template>
