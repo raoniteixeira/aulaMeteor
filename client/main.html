@@ -4,16 +4,24 @@
 <body>
 
   {{> msg}}
-  agsjdgajsdgas
+
 </body>
 
 <template name="msg">
-  Seu nome é 
-  <h2>{{name}}</h2>
-
-  <form>
-    Nome: 
-    <input type="text" id="fname" name="xyz">
-    <input type="submit" class="submit">
-  </form>
+  
+  {{#if nomeEstaVazio}}
+    Digite seu nome
+    <form>
+      Nome: 
+      <input type="text" id="fname" name="xyz">
+      <input type="submit" class="submit">
+    </form>
+  {{else}}
+    Seu nome é
+    {{name}}
+  {{/if}}
+  
+  
+  
+  
 </template>

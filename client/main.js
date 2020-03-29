@@ -10,6 +10,15 @@ Template.msg.onCreated( function msgOnCreate() {
 Template.msg.helpers({
   'name': function() {
     return Template.instance().name.get();
+  },
+  'nomeEstaVazio': function() {
+    if (Template.instance().name.get() == '')
+      return true;
+    else
+      return false;
+  },
+  'lista': function() {
+    return ['coisa1', 'coisa2', 'coisa3'];
   }
 });
 
